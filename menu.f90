@@ -24,32 +24,31 @@ end program menu !Terminando el programa
 
 subroutine leerArchivo() !Comenzando la funcion para leer el archivo
     implicit none
-    !Declarando las variables para mostrar los datos del archivo
-    character(len=50) :: producto, ubicacion
-    integer :: cantidad, i
+    !Declarando Variables 
+    integer :: contador, iostat,i,cantidad
     real :: precio
+    character(len=128) :: linea,producto,bodega
+    logical:: e
+    contador=0
+    !Verifico la existencia del archivo
+    inquire(file="inventario.inv", exist=e)
 
-    !Declarando las variables para calcular las líneas del archivo
-    integer :: contador, iostat, unit
-    character(len=128) :: linea
-
+    if (e) then
     !Abriendo el archivo
-    open(unit=10, file="inventario.inv", status="old", action="read")
-    !Leyendo y contando las líneas del archivo
-    do 
-            read(unit,'(A)', iostat=iostat) linea
-            if (iostat /= 0) exit
-            contador=contador+1
-        end do
+    open(unit=1, file="inventario.inv", status="old", action="read")
 
+    do  !Leyendo la cantidad de lineas
+        read(1, '(A)', iostat=iostat) linea
+        if (iostat/=0) exit
+        !Mostrando el contenido del archivo
+        read(linea,* , iostat=iostat) producto, cantidad, precio, bodega
+        print *, "Producto: ", producto, "Cantidad: ", cantidad, "Precio: ", precio, "Ubicacion: ", bodega
 
-    !Leyendo el archivo e imprimiendo su contenido
-    do while(i<=contador)
-        read(10, *) producto, cantidad, precio, ubicacion
-        print *, producto, cantidad, precio, ubicacion
-        i=i+1
+        contador=contador+1!Contador para que no se me encicle (lo hizo xd)
     end do
-
-    !Cerrando el archivo
-    close(10)
+    close(1)
+    else
+        print *, "El archivo inventario.inv no existe"
+        return
+    end if
 end subroutine leerArchivo !Terminando la funcion para leer el archivo
