@@ -5,7 +5,7 @@ program menu !Comenzando el programa
     integer :: opcion
     print *, "Bienvenido al programa del inventario de productos"
     salir = .false.
-    do while (.not. salir)
+    do while (.not. salir)!Iniciando el ciclo
         print *, "Seleccione una opcion:"
         print *, "1. Leer Archivo .inv e imprimir su contenido"
         print *, "2. Salir Producto"
@@ -22,17 +22,16 @@ program menu !Comenzando el programa
     end do
 end program menu !Terminando el programa
 
-subroutine leerArchivo() !Comenzando la funcion para leer el archivo
+subroutine leerArchivo() !Comenzando la funcion para leer el archivo y mostrarlo
     implicit none
     !Declarando Variables 
-    integer :: contador, iostat,i,cantidad
+    integer :: contador, iostat,cantidad
     real :: precio
     character(len=128) :: linea,producto,bodega
     logical:: e
     contador=0
     !Verifico la existencia del archivo
     inquire(file="inventario.inv", exist=e)
-
     if (e) then
     !Abriendo el archivo
     open(unit=1, file="inventario.inv", status="old", action="read")
@@ -47,7 +46,7 @@ subroutine leerArchivo() !Comenzando la funcion para leer el archivo
         contador=contador+1!Contador para que no se me encicle (lo hizo xd)
     end do
     close(1)
-    else
+    else !Por si no existe el archivo
         print *, "El archivo inventario.inv no existe"
         return
     end if
