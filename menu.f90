@@ -25,7 +25,7 @@ end program menu !Terminando el programa
 subroutine leerArchivo() !Comenzando la funcion para leer el archivo y mostrarlo
     implicit none
     !Declarando Variables 
-    integer :: contador, iostat,cantidad
+    integer :: contador, iostat, cantidad
     real :: precio
     character(len=128) :: linea,producto,bodega
     logical:: e
@@ -35,14 +35,12 @@ subroutine leerArchivo() !Comenzando la funcion para leer el archivo y mostrarlo
     if (e) then
     !Abriendo el archivo
     open(unit=1, file="inventario.inv", status="old", action="read")
-
     do  !Leyendo la cantidad de lineas
         read(1, '(A)', iostat=iostat) linea
         if (iostat/=0) exit
         !Mostrando el contenido del archivo
         read(linea,* , iostat=iostat) producto, cantidad, precio, bodega
         print *, "Producto: ", producto, "Cantidad: ", cantidad, "Precio: ", precio, "Ubicacion: ", bodega
-
         contador=contador+1!Contador para que no se me encicle (lo hizo xd)
     end do
     close(1)
