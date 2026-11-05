@@ -1,68 +1,34 @@
-<div align="center">
+# Lectura de inventario de productos en Fortran
 
-# 🔢 Matrix & Numerical Algorithms in Modern Fortran (LFP)
+Ejercicio de Lenguajes Formales y de Programación que implementa un menú y lectura del archivo inventario.inv desde Fortran.
 
-**Implementación de algoritmos matemáticos y manipulación de matrices numéricas en Fortran.**
+## Requisitos
 
-[![Language](https://img.shields.io/badge/Language-Fortran-blue?style=for-the-badge)](https://github.com/Ennero/Tarea1_LFP)
-[![Course](https://img.shields.io/badge/Course-Lenguajes%20Formales%20y%20de%20Programación-003366?style=for-the-badge)](https://ingenieria.usac.edu.gt/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+GNU Fortran (gfortran). Ejecutar desde la carpeta que contiene inventario.inv.
 
-</div>
+## Ejecución
 
----
+Los comandos parten de la raíz del repositorio, salvo donde se indica otra terminal.
 
-
-## 📌 Descripción General
-
-Este repositorio contiene la implementación y entrega de **🔢 Matrix & Numerical Algorithms in Modern Fortran (LFP)**, desarrollado en el curso de **Lenguajes Formales y de Programación** en la Universidad de San Carlos de Guatemala.
-
-- **Objetivo:** Implementación de algoritmos matemáticos y manipulación de matrices numéricas en Fortran.
-- **Stack Principal:** `Fortran`.
-- **Área:** Ciencias de la Computación, Algoritmos y Desarrollo de Software.
-
----
-
-## 🚀 Características y Componentes
-
-- Implementación modular y buenas prácticas de codificación.
-- Manejo estructurado de datos, control de flujo y validaciones.
-- Documentación y scripts de soporte para compilación o ejecución.
-
----
-
-## 📦 Estructura del Proyecto
-
-```
-Tarea1_LFP/
-├── src/ o archivos de código fuente
-├── docs/ (si aplica)
-├── .gitignore
-├── LICENSE
-└── README.md
+```bash
+gfortran -ffree-line-length-none menu.f90 -o inventario.exe
+./inventario.exe
 ```
 
----
+## Recorrido de demostración
 
-## ⚙️ Requisitos y Ejecución
+Elegir la opción de lectura desde el menú y comparar la información presentada con inventario.inv. La subrutina leerArchivo contiene el acceso al archivo.
 
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/Ennero/Tarea1_LFP.git
-   cd Tarea1_LFP
-   ```
-2. Ejecutar según el entorno (`Fortran`):
-   - Consultar los scripts o archivos principales del proyecto para parámetros específicos.
+## Organización
 
----
+El código y los archivos de entrada se encuentran en la raíz; los nombres de los puntos de entrada se indican arriba.
 
-## 📄 Licencia
+## Alcance y límites
 
-Este proyecto está bajo la Licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+No implementa operaciones de matrices ni algoritmos numéricos avanzados. El ejecutable debe compilarse localmente.
 
----
+## Contexto y licencia
 
-## 👨‍💻 Autor
+Trabajo académico o de aprendizaje conservado en el portafolio de [Enner Mendizabal](https://github.com/Ennero). Los créditos de los trabajos en grupo se conservan en sus entregas y manuales.
 
-- **Enner Mendizabal** - [@Ennero](https://github.com/Ennero)  
-- *Facultad de Ingeniería, Universidad de San Carlos de Guatemala.*
+Consultar [LICENSE](LICENSE) para la licencia de la raíz. Las dependencias y los componentes con avisos o licencias propios conservan sus condiciones.
